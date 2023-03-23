@@ -427,3 +427,13 @@ Processing by TodosController#destroy as */*
 Completed 204 No Content in 19ms (Views: 0.2ms | ActiveRecord: 4.9ms | Allocations: 7501)
 
 
+Started GET "/todos" for 127.0.0.1 at 2023-03-23 13:07:39 +0300
+Processing by TodosController#index as */*
+  Parameters: {"title"=>"Add Todo Endpoint - change", "description"=>"Please addthe created Todo", "priority"=>1, "todo"=>{"title"=>"Add Todo Endpoint - change", "description"=>"Please addthe created Todo", "priority"=>1}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:40:in `user'
+  [1m[36mTodo Load (0.8ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = ?[0m  [["user_id", 2]]
+  ↳ app/controllers/application_controller.rb:7:in `app_response'
+Completed 200 OK in 22ms (Views: 6.8ms | ActiveRecord: 2.0ms | Allocations: 7077)
+
+
