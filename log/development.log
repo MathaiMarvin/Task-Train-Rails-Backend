@@ -360,3 +360,54 @@ Processing by TodosController#create as */*
 Completed 422 Unprocessable Entity in 10ms (Views: 0.2ms | ActiveRecord: 0.5ms | Allocations: 5607)
 
 
+Started POST "/todos" for 127.0.0.1 at 2023-03-23 12:36:53 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by TodosController#create as */*
+  Parameters: {"title"=>"Add Todo Endpoint", "description"=>"Please addthe created Todo", "priority"=>2, "todo"=>{"title"=>"Add Todo Endpoint", "description"=>"Please addthe created Todo", "priority"=>2}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:39:in `user'
+[31mUnpermitted parameter: :todo. Context: { controller: TodosController, action: create, request: #<ActionDispatch::Request:0x00007f35c8b41838>, params: {"title"=>"Add Todo Endpoint", "description"=>"Please addthe created Todo", "priority"=>2, "controller"=>"todos", "action"=>"create", "todo"=>{"title"=>"Add Todo Endpoint", "description"=>"Please addthe created Todo", "priority"=>2}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/todos_controller.rb:7:in `create'
+  [1m[36mTodo Create (0.3ms)[0m  [1m[32mINSERT INTO "todos" ("title", "description", "status", "priority", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["title", "Add Todo Endpoint"], ["description", "Please addthe created Todo"], ["status", 0], ["priority", 2], ["user_id", 2], ["created_at", "2023-03-23 09:36:53.983521"], ["updated_at", "2023-03-23 09:36:53.983521"]]
+  ↳ app/controllers/todos_controller.rb:7:in `create'
+  [1m[36mTRANSACTION (7.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/todos_controller.rb:7:in `create'
+Completed 201 Created in 59ms (Views: 0.4ms | ActiveRecord: 8.8ms | Allocations: 60374)
+
+
+Started POST "/todos" for 127.0.0.1 at 2023-03-23 12:41:09 +0300
+Processing by TodosController#create as */*
+  Parameters: {"title"=>"Add Todo Endpoint", "description"=>"Please addthe created Todo", "priority"=>8, "todo"=>{"title"=>"Add Todo Endpoint", "description"=>"Please addthe created Todo", "priority"=>8}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:39:in `user'
+[31mUnpermitted parameter: :todo. Context: { controller: TodosController, action: create, request: #<ActionDispatch::Request:0x00007f35d8e6d8d0>, params: {"title"=>"Add Todo Endpoint", "description"=>"Please addthe created Todo", "priority"=>8, "controller"=>"todos", "action"=>"create", "todo"=>{"title"=>"Add Todo Endpoint", "description"=>"Please addthe created Todo", "priority"=>8}} }[0m
+Completed 422 Unprocessable Entity in 10ms (Views: 0.2ms | ActiveRecord: 1.4ms | Allocations: 6116)
+
+
+Started POST "/todos" for 127.0.0.1 at 2023-03-23 12:43:59 +0300
+Processing by TodosController#create as */*
+  Parameters: {"title"=>"Add Todo Endpoint", "description"=>"Please addthe created Todo", "priority"=>8, "todo"=>{"title"=>"Add Todo Endpoint", "description"=>"Please addthe created Todo", "priority"=>8}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:40:in `user'
+[31mUnpermitted parameter: :todo. Context: { controller: TodosController, action: create, request: #<ActionDispatch::Request:0x00007f35c8c48d30>, params: {"title"=>"Add Todo Endpoint", "description"=>"Please addthe created Todo", "priority"=>8, "controller"=>"todos", "action"=>"create", "todo"=>{"title"=>"Add Todo Endpoint", "description"=>"Please addthe created Todo", "priority"=>8}} }[0m
+Completed 422 Unprocessable Entity in 13ms (Views: 0.2ms | ActiveRecord: 1.6ms | Allocations: 6057)
+
+
+Started POST "/todos/3" for 127.0.0.1 at 2023-03-23 12:53:01 +0300
+Processing by TodosController#update as */*
+  Parameters: {"title"=>"Add Todo Endpoint - change", "description"=>"Please addthe created Todo", "priority"=>1, "id"=>"3", "todo"=>{"title"=>"Add Todo Endpoint - change", "description"=>"Please addthe created Todo", "priority"=>1}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:40:in `user'
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."user_id" = ? AND "todos"."id" = ? LIMIT ?[0m  [["user_id", 2], ["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/todos_controller.rb:14:in `update'
+[31mUnpermitted parameters: :id, :todo. Context: { controller: TodosController, action: update, request: #<ActionDispatch::Request:0x00007f35d89d8360>, params: {"title"=>"Add Todo Endpoint - change", "description"=>"Please addthe created Todo", "priority"=>1, "controller"=>"todos", "action"=>"update", "id"=>"3", "todo"=>{"title"=>"Add Todo Endpoint - change", "description"=>"Please addthe created Todo", "priority"=>1}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/todos_controller.rb:14:in `update'
+  [1m[36mTodo Update (0.2ms)[0m  [1m[33mUPDATE "todos" SET "title" = ?, "priority" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["title", "Add Todo Endpoint - change"], ["priority", 1], ["updated_at", "2023-03-23 09:53:01.437366"], ["id", 3]]
+  ↳ app/controllers/todos_controller.rb:14:in `update'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/todos_controller.rb:14:in `update'
+Completed 200 OK in 19ms (Views: 0.2ms | ActiveRecord: 3.1ms | Allocations: 8103)
+
+

@@ -11,4 +11,5 @@ Rails.application.routes.draw do
 # Todos
 
 post '/todos', to: 'todos#create'
+post "todos/:id", to: 'todos#update'
 end
