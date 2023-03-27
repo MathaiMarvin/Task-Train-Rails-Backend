@@ -14,4 +14,8 @@ post '/todos', to: 'todos#create'
 post "todos/:id", to: 'todos#update'
 delete"todos/:id", to:"todos#destroy"
 get"todos", to:"todos#index"
+
+# Verify auth
+
+get '/verify', to: 'application#verify_auth'
 end
