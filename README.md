@@ -31,10 +31,7 @@ This section will guide you through setting up and running this repository on yo
     ```
     cd Task-Train-Rails-Backend
     ```
-* To interact with the front-end part of the application, navigate to the `client` folder
-    ```
-    cd client
-    ```
+
 * To interact with the back-end part of the application, navigate to the `api` folder
     ```
     cd api
